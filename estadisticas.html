@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <head>
+    <meta charset="utf-8">
+    <script src="complementos/js/privilegios.js"></script>
+    <link rel="stylesheet" href="librerias/css/iconos.css">
+    <link rel="stylesheet" href="librerias/css/materialize.css" media="screen,projection" />
+    <link rel="stylesheet" href="complementos/css/general.css">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space | ESTADISTICAS</title>
+  </head>
+</head>
+
+<!-- navbar -->
+<div id="navbarvue">
+  <navbar-vista></navbar-vista>
+</div>
+
+<body>
+  <main >
+    <div class="row">
+      <div class="col s12">
+        <div style="padding: 35px;" align="center" class="card">
+          <div class="row">
+            <div class="center card-title">
+              <b>ESTADISTICAS <i class="material-icons rotate center">donut_large</i></b>
+            </div>
+          </div>
+  
+          <div class="row">
+
+            <a href="perfil.html">
+              <div style="padding: 30px;" class="grey lighten-3 col s3 waves-effect">
+                <i class="indigo-text text-lighten-1 large material-icons ">assignment_ind</i>
+                <span class="indigo-text text-lighten-1"><h4>5121<i class="material-icons ">group</i></h4></span>
+                <span class="indigo-text text-lighten-1"><h5>usuarios registrados</h5></span>
+              </div>
+            </a>
+            <div class="col s1">&nbsp;</div>
+ 
+            <a class="modal-trigger" href="#modal1" @click='cargarUsuarios()'>
+              <div style="padding: 30px;" class="grey lighten-3 col s3 waves-effect">
+                <i class="indigo-text text-lighten-1 large material-icons">assignment</i>
+                <span class="indigo-text text-lighten-1"><h4>211<i class="material-icons">edit_location</i></h4></span>
+                <span class="indigo-text text-lighten-1"><h5>preguntas realizadas</h5></span>
+              </div>
+            </a>
+
+            <div class="col s1">&nbsp;</div>
+
+            <a class="modal-trigger" href="#modal1" @click='cargarUsuarios()'>
+              <div style="padding: 30px;" class="grey lighten-3 col s3 waves-effect">
+                <i class="indigo-text text-lighten-1 large material-icons">assignment_turned_in</i>
+                <span class="indigo-text text-lighten-1"><h4>10<i class="material-icons">chat</i></h4></span>
+                <span class="indigo-text text-lighten-1"><h5>respuestas realizadas</h5></span>
+              </div>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col s12">
+        <div style="padding: 35px;" align="center" class="card">
+         
+          <div class="row">
+              <div class="grey lighten-3 col s12 waves-effect">
+               <img src="img/estadistica.jpg" alt="" width="1200px" height="600px">
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+  
+    </div>
+  
+  </main>
+  
+
+  
+
+  
+     <!-- boton flotante-->
+  <div id="boton-v">
+    <boton-flotante></boton-flotante>
+  </div>
+
+    <!-- footer -->
+  <div id="footer-v">
+    <footer-vista></footer-vista>
+  </div>
+
+  <script src="librerias/js/materialize.js"></script>
+  <script src="librerias/vue.js"></script>
+  <script src="librerias/axios.js"></script>
+
+  <script src="complementos/js/general.js"></script>
+   <script src="complementos/js/componentes.js"></script> 
+
+</body>
+
+</html>

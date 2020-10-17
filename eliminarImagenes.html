@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="complementos/js/privilegios.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="librerias/css/iconos.css">
+  <link rel="stylesheet" href="librerias/css/materialize.css" media="screen,projection" />
+  <link rel="stylesheet" href="complementos/css/ingresar.css">
+  <link rel="stylesheet" href="complementos/css/general.css">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <title>space | iniciar sesion</title>
+</head>
+
+<body>
+
+
+<!-- navbar -->
+<div id="navbarvue">
+  <navbar-vista></navbar-vista>
+</div>
+
+
+  
+  <div class="row" id="img">
+    <nav>
+      <div class="nav-wrapper indigo darken-2">
+        <a style="margin-left: 20px;" class="breadcrumb" href="configuracion.html">configuracion</a>
+        <a class="breadcrumb" href="#!">editar-imagenes</a>
+  
+        <div style="margin-right: 20px;" id="timestamp" class="right"></div>
+      </div>
+    </nav>
+
+    <div class="col s3 m3" v-for="url in img">
+        <div class="card">
+          <div class="card-image">
+            <img :src="url" style="margin:10px; width:300px; height:300px; border-radius: 10px;">
+            <span class="card-title">{{url}}</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red" @click="eliminar(url)"><i class="material-icons">delete</i></a>
+          </div>
+          <div class="card-content">
+            <p class="indigo"></p>
+          </div>
+        </div>
+      </div>
+
+ 
+  </div>
+
+
+    <!--boton flotante -->
+  <div id="boton-v">
+    <boton-flotante></boton-flotante>
+  </div>
+
+  
+  <!-- Footer -->
+  <div id="footer-v">
+   <footer-vista></footer-vista>
+  </div>
+
+  <script src="librerias/js/materialize.js"></script>
+  <script src="librerias/vue.js"></script>
+  <script src="librerias/axios.js"></script>
+
+  <script src="complementos/js/general.js"></script>
+  <script src="complementos/js/componentes.js"></script>
+
+  <script type="text/javascript">
+
+  const root = new Vue({
+    el: '#img',
+    data: {
+     img: [],
+    },
+    mounted(){
+      let solicitud = new FormData();
+      solicitud.append('solicitud','cargarImagenes');
+      axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+       root.img = response.data.url
+      })
+       
+    },
+    methods: {
+      eliminar(url){
+        let solicitud = new FormData();
+        solicitud.append('solicitud','eliminarImagenes');
+        solicitud.append('img', url);
+        axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+          let = index = root.img.indexOf(url)
+          root.img.splice(index, 1);
+        })
+      }
+    }
+
+  })
+  
+  </script>
+
+</body>
+
+</html>

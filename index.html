@@ -1,0 +1,338 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="librerias/css/iconos.css">
+   <link rel="stylesheet" href="librerias/css/materialize.css" media="screen,projection" />
+   <link rel="stylesheet" href="complementos/css/general.css">
+   <link rel="icon" type="image/png" href="img/logo.png" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Space | inicio</title>
+ </head>
+
+ <body>
+  
+  <!-- navbar -->
+   <div id="navbarvue">
+    <navbar-vista></navbar-vista>
+  </div>
+
+   <!-- Section: Slider -->
+   <section class="slider" id="home">
+     <ul class="slides">
+       <li>
+         <img src="img/4.png" alt="">
+         <div class="caption center-align">
+           <h2>El espacio no esta totalmente vacio</h2>
+           <h5 class="light grey-text text-lighten-3 hide-on-small-only">En el espacio interplanetario domina el viento
+             solar, una corriente de partículas cargadas que provienen del Sol y crean una atmósfera llamada heliosfera,
+             que ocupa billones de kilómetros en el espacio!</h5>
+           <a href="#" class="waves-effect btn btn-large indigo lighten-0">MAS INFORMACION<i class="material-icons right">add</i></a>
+         </div>
+       </li>
+       <li>
+         <img src="img/6.jpg" alt="">
+         <div class="caption left-align">
+           <h2>La gravedad de los planetas</h2>
+           <h5 class="light grey-text text-lighten-3 hide-on-small-only">La gravedad de la Tierra mantiene a la Luna en
+             órbita en promedio a 384,403 km de distancia. La región fuera de la atmósfera terrestre, extendida más allá
+             de la órbita de la Luna, incluidos los Puntos de Lagrange, es llamada espacio cislunar.</h5>
+           <a href="#" class="waves-effect btn btn-large indigo lighten-0">MAS INFORMACION<i class="material-icons right">add</i></a>
+         </div>
+       </li>
+       <li>
+         <img src="img/1.jpg" alt="">
+         <div class="caption right-align">
+           <h2>El espacio intergaláctico</h2>
+           <h5 class="light grey-text text-lighten-3 hide-on-small-only">es el espacio físico entre las galaxias. Los
+             estudios sobre la distribución a gran escala de las galaxias indican que el Universo tiene una estructura
+             parecida a una esponja.</h5>
+           <a href="#" class="waves-effect btn btn-large indigo lighten-0">MAS INFORMACION<i class="material-icons right">add</i></a>
+         </div>
+       </li>
+     </ul>
+   </section>
+
+   <!-- Section: Search 
+  
+  <i class="material-icons prefix">public</i>
+                <input class="white autocomplete" placeholder="planetas, estrellas, etc..." type="text"
+                id="autocomplete-input" name=btnG>-->
+   <section id="search" class="section section-search grey darken-4 white-text center scrollspy">
+     <div class="container">
+       <div class="row">
+         <div class="col s12">
+           <form method=GET action="http://www.google.com/search">
+             <h3>Buscar informacion relacionada.</h3>
+             <div class="input-field">
+               <INPUT class="white autocomplete" TYPE=text name=q size=31 maxlength=255 value="" id="autocomplete-input" placeholder="planetas, estrellas, etc...">
+               <INPUT TYPE=hidden name=hl value=es>      
+             </div>
+             <button class="btn btn-large indigo waves-effect waves-light" type=submit name=btnG>BUSCAR
+              <i class="material-icons right ">search</i>
+            </button>
+           </form>
+
+         </div>
+       </div>
+     </div>
+   </section>
+
+
+   <!-- Section: Popular -->
+   <section id="popular" class="section section-popular scrollspy">
+     <div class="container">
+       <div class="row">
+         <h4 class="center">
+           <span class="indigo-text text-lighten-1 ">Busquedas</span> populares
+         </h4>
+         <div class="col s12 m4">
+           <div class="card" style="height:450px;">
+             <div class="card-image">
+               <img src="img/gusano.jpg" style="height:188px;">
+               <span class="card-title">Agujero de gusano</span>
+             </div>
+             <div class="card-content">
+               <p>En física, un agujero de gusano, también conocido como puente de Einstein-Rosen, es una hipotética
+                 característica topológica de un espacio-tiempo, descrita en las ecuaciones de la relatividad general,
+                 que esencialmente consiste en un atajo a través del espacio y el tiempo.
+               </p>
+             </div>
+           </div>
+         </div>
+         <div class="col s12 m4">
+           <div class="card" style="height:450px;">
+             <div class="card-image">
+               <img src="img/neutrones.jpg" style="height:188px;">
+               <span class="card-title">Estrella de neutrones</span>
+             </div>
+             <div class="card-content">
+               <p>Una estrella de neutrones es un tipo de remanente estelar resultante del colapso gravitacional de una
+                 estrella supergigante masiva después de agotar el combustible en su núcleo y explotar como una
+                 supernova tipo II, tipo Ib o tipo Ic.
+               </p>
+             </div>
+           </div>
+         </div>
+         <div class="col s12 m4">
+           <div class="card" style="height:450px;">
+             <div class="card-image">
+               <img src="img/NGC_4414_(NASA-med).jpg" style="height:188px;">
+               <span class="card-title">Galaxia</span>
+             </div>
+             <div class="card-content">
+               <p>Una galaxia es un conjunto de estrellas, nubes de gas, planetas, polvo cósmico, materia oscura y
+                 energía unidas gravitatoriamente en una estructura más o menos definida.
+               </p>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col s12 center">
+           <a href="#contact" class="btn btn-large grey darken-3">
+             <i class="material-icons left">send</i> Hacer una preguntas
+           </a>
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <!-- Section: Follow -->
+   <section class="section section-follow grey darken-4 white-text center">
+     <div class="container">
+       <div class="row">
+         <div class="col s12">
+           <h4>el origen de lo desconocido</h4>
+           <p> El tiempo no es sino el espacio entre nuestros recuerdos.</p>
+           <a href="htttps://facebook.com" target="_blank" class="white-text">
+             <i class="fab fa-facebook fa-4x"></i>
+           </a>
+           <a href="htttps://twitter.com" target="_blank" class="white-text">
+             <i class="fab fa-twitter fa-4x"></i>
+           </a>
+           <a href="htttps://linkedin.com" target="_blank" class="white-text">
+             <i class="fab fa-linkedin fa-4x"></i>
+           </a>
+           <a href="htttps://googleplus.com" target="_blank" class="white-text">
+             <i class="fab fa-google-plus fa-4x"></i>
+           </a>
+           <a href="htttps://pinterest.com" target="_blank" class="white-text">
+             <i class="fab fa-pinterest fa-4x"></i>
+           </a>
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <section class="section section-gallery">
+     <img src="img/3.png" width="100%" height="400px">
+   </section>
+
+   <!-- Section: Gallery -->
+   <section id="gallery" class="section section-gallery scrollspy">
+     <div class="container" id="img">
+       <h4 class="center">
+         <span class="indigo-text text-lighten-1">Imagenes </span>Reales
+       </h4>
+       <div class="row">
+         <div class="col s12">
+           <div class="row">
+            <div class="col s12 m4 l4" v-for="url in imgReales">
+              <img class="materialboxed  fluid" :src="url" alt="cargando..." style="margin: 10px; width: 270px; height: 270px;">
+             </div>
+           </div>
+           
+           
+           
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <!-- Section: Contact -->
+   <section id="contact" class="section section-contact scrollspy">
+     <div class="container">
+       <div class="row">
+         <div class="col s12 m6">
+           <div class="card-panel grey darken-4 white-text center">
+             <i class="material-icons medium">email</i>
+             <h5>Haznos una pregunta</h5>
+             <p>la pregunta tiene que ser discreta y estar sujeta a <span class="indigo-text">nuestros terminos y
+                 codiciones</span> del servicio</p>
+           </div>
+           <ul class="collection with-header">
+             <li class="collection-header">
+               <h4>contactame</h4>
+             </li>
+             <li class="collection-item">github-> MasterProgrammer54</li>
+             <li class="collection-item">telegram-> MasterProgrammer54</li>
+           </ul>
+         </div>
+         <div class="col s12 m6" id="formulario">
+           <form method="POST" v-on:submit.prevent>
+             <div class="card-panel grey lighten-3">
+               <h5>Rellena Nuestro formulario</h5>
+               <div class="input-field ">
+                 <input type="text" placeholder="nombre" v-model="objeto.nombre" name="nombre" maxlength="18">
+                 <label for="nombre">tus nombres</label>
+               </div>
+               <div class="input-field">
+                 <input type="email" placeholder="correo" v-model="objeto.correo" name="correo" maxlength="25">
+                 <label for="correo">correo</label>
+               </div>
+               <div class="input-field">
+                 <input type="text" placeholder="titulo" v-model="objeto.titulo" name="titulo" maxlength="25">
+                 <label for="titulo">titulo</label>
+               </div>
+               <div class="input-field">
+                 <textarea class="materialize-textarea" placeholder="Escribir una pregunta" v-model="objeto.pregunta"
+                   name="pregunta" maxlength="50"></textarea>
+                 <label for="pregunta">pregunta</label>
+                 <div class="center-align" v-html="alerta"></div>
+               </div>
+
+               <button class="btn grey darken-4" v-on:click="enviarPregunta()">enviar <i class="
+                material-icons right">send</i></button>
+             </div>
+           </form>
+         </div>
+       </div>
+     </div>
+   </section>
+
+  <!--boton flotante -->
+  <div id="boton-v">
+    <boton-flotante></boton-flotante>
+  </div>
+
+   <!-- Footer -->
+   <div id="footer-v">
+    <footer-vista></footer-vista>
+   </div>
+
+   <script src="librerias/js/materialize.js"></script>
+   <script src="librerias/vue.js"></script>
+   <script src="librerias/axios.js"></script>
+   
+   <script src="complementos/js/general.js"></script>
+   <script src="complementos/js/componentes.js"></script>
+
+   <script type="text/javascript">
+
+     const img = new Vue({
+    el: '#img',
+    data: {
+    imgReales: [{'img':'areglo'}]
+    },
+    mounted(){
+   
+     axios.get('funciones/cargarImagenesReales.php').then(function(response){
+       img.imgReales = response.data.url
+     })
+     
+    },
+    methods:{
+
+    }
+     });
+
+
+     let root = new Vue({
+       el: "#formulario",
+       data: {
+         objeto: {
+           nombre: '',
+           correo: '',
+           titulo: '',
+           pregunta: ''
+         },
+         alerta: ''
+       },
+       methods: {
+         enviarPregunta() {
+           this.alerta =
+             '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>'
+
+           let datos = root.FormData(root.objeto);
+           axios.post('funciones/registrarPregunta.php', datos)
+             .then(function (response) {
+
+               switch (response.data) {
+                 case 0:
+                   root.alerta =
+                     '<div class="chip chip_message_alert">Tienes una pregunta ya registrada.<i class="close  material-icons">close</i></div>'
+                   break;
+                 case 1:
+                   root.alerta =
+                     '<div class="chip chip_message_info">Tu pregunta fue registrada con exito<i class="close material-icons">close</i></div>'
+                   root.objeto.nombre = ""
+                   root.objeto.correo = ""
+                   root.objeto.titulo = ""
+                   root.objeto.pregunta = ""
+                   break;
+                 case 2:
+                   root.alerta =
+                     '<div class="chip chip_message_warning">algun campo esta vacio<i class="close material-icons">close</i></div>'
+                   break;
+               }
+
+
+             });
+
+         },
+         FormData: function (obj) {
+           let formData = new FormData();
+           for (let key in obj) {
+             formData.append(key, obj[key]);
+           }
+           return formData;
+         }
+       }
+     });
+   </script>
+
+ </body>
+
+ </html>

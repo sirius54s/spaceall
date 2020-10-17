@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="complementos/js/privilegios.js"></script>
+    <link rel="stylesheet" href="librerias/css/iconos.css">
+    <link rel="stylesheet" href="librerias/css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="complementos/css/general.css">
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+    <title>Space | configuracion</title>
+    
+    <style>
+      .icono{
+        width:50px;
+        height:50px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- navbar -->
+   <div id="navbarvue">
+    <navbar-vista></navbar-vista>
+  </div>
+
+
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-2">
+      <a style="margin-left: 20px;" class="breadcrumb" href="#!">configuracion</a>
+      <a class="breadcrumb" href="#!">inicio</a>
+
+      <div style="margin-right: 20px;" id="timestamp" class="right"></div>
+    </div>
+  </nav>
+</header>
+
+<div id="configuracion">
+<main >
+  <div class="row">
+    <div class="col s12 m6">
+      <div style="padding: 35px;" align="center" class="card">
+        <div class="row">
+          <div class="left card-title">
+            <b>Administrador de perfil</b>
+          </div>
+        </div>
+
+        <div class="row">
+          <a href="perfil.html">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">person</i>
+              <span class="indigo-text text-lighten-1"><h5>Mi perfil</h5></span>
+            </div>
+          </a>
+          <div class="col s1">&nbsp;</div>
+          <div class="col s1">&nbsp;</div>
+
+          <a class="modal-trigger" href="#modal1" @click='cargarUsuarios()'>
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">people</i>
+              <span class="indigo-text text-lighten-1"><h5>Otros Perfiles</h5></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6">
+      <div style="padding: 35px;" align="center" class="card">
+        <div class="row">
+          <div class="left card-title">
+            <b>Imagenes Reales</b>
+          </div>
+        </div>
+        <div class="row">
+          <a href="nuevaImagen.html">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">assignment</i>
+              <span class="indigo-text text-lighten-1"><h5>Actualizar</h5></span>
+            </div>
+          </a>
+
+          <div class="col s1">&nbsp;</div>
+          <div class="col s1">&nbsp;</div>
+
+          <a href="eliminarImagenes.html">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">delete</i>
+              <span class="indigo-text text-lighten-1"><h5>Eliminar</h5></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div style="padding: 35px;" align="center" class="card">
+        <div class="row">
+          <div class="left card-title">
+            <b>ESTADISTICAS</b>
+          </div>
+        </div>
+
+        <div class="row">
+          <a href="estadisticas.html">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">assessment</i>
+              <span class="indigo-text text-lighten-1"><h5>general</h5></span>
+            </div>
+          </a>
+
+          <div class="col s1">&nbsp;</div>
+          <div class="col s1">&nbsp;</div>
+
+          <a href="#">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">close</i>
+              <span class="indigo-text text-lighten-1"><h5>desactivado</h5></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m6">
+      <div style="padding: 35px;" align="center" class="card">
+        <div class="row">
+          <div class="left card-title">
+            <b>ADMINISTRACION</b>
+          </div>
+        </div>
+        <div class="row">
+          <a class="modal-trigger" href="#modal2" @click="cargarLicencia()">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">vpn_key</i>
+              <span class="indigo-text text-lighten-1"><h5>licencia</h5></span>
+            </div>
+          </a>
+          <div class="col s1">&nbsp;</div>
+          <div class="col s1">&nbsp;</div>
+
+          <a  class="modal-trigger" href="#modal3">
+            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+              <i class="indigo-text text-lighten-1 large material-icons">description</i>
+              <span class="truncate indigo-text text-lighten-1"><h5>fundador</h5></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</main>
+
+
+ <!-- Modal administrar perfil-->
+ <div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>administrador de usuarios <i class="Medium material-icons rotate" style="font-size: 30px;">settings</i></h4>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="input_text" type="text" data-length="10" v-model="busquedaUsuarios">
+        <label for="input_text">Busqueda <i class="material-icons left">search</i></label>
+      </div>
+    </div>
+    <table class="centered highlight" v-show="!sinResultados">
+      <thead>
+        <tr >
+            <th>#</th>
+            <th>usuario</th>
+            <th>correo</th>
+            <th>rango</th>
+            <th>acciones</th>    
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="item in usuarios" :key="item.id">
+          <td>{{item.id}}</td>
+          <td>{{item.usuario}}</td>
+          <td>{{item.correo}}</td>
+          <td>{{item.rango}}</td>
+          <td>
+              <a class="btn-floating green"><i class="material-icons disabled">create</i></a>
+              <a class="btn-floating red" @click="eliminarUsuario(item.id)"><i class="material-icons">delete</i></a>
+        </tr>
+        
+         <h1 v-show="sinResultados">sin resultado <i class="material-icons" style="font-size: 60px;">sentiment_very_dissatisfied
+          </i>
+         </h1>
+            
+      </tbody>
+    </table>  
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat" @click="limpiar()">cerrar<i class="Medium material-icons right">close</i></a>
+  </div>
+</div>
+ 
+
+
+
+ <!-- Modal licecia-->
+ <div id="modal2" class="modal modal-fixed-footer">
+   <div class="modal-content">
+     <h4>administrador de licencias <i class="Medium material-icons rotate" style="font-size: 30px;">settings</i></h4>
+     <input class="" type="text" placeholder="xxx-xxx-xxx" v-model='clave'>
+     <button class="btn indigo" @click="agregarLicencia()">Generar clave nueva <i class="material-icons right">add</i></button>
+     <table class="centered highlight">
+      <thead>
+        <tr>
+            <th>#</th>
+            <th>clave</th>
+            <th>acciones</th>    
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="(item, index) in licencias" :key="index">
+          <td>{{index}}</td>
+          <td>{{item.clave}}</td>   
+          <td>
+              <a class="btn-floating green"><i class="material-icons disabled">create</i></a>
+              <a class="btn-floating red" @click="eliminarLicencia(item.id)"><i class="material-icons">delete</i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>  
+   </div>
+   <div class="modal-footer">
+     <a href="#!" class="modal-close waves-effect waves-green btn-flat" @click="limpiar()">cerrar<i class="Medium material-icons right">close</i></a>
+   </div>
+ </div>
+
+<!-- Modal fundador-->
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <div class="container">
+      <h4 class="center">Fundador {/}</h4>
+      <div class="center">
+        <img class="responsive-img " src="img/fundador.png" alt="cargando..." width="300px">
+        <p>telegram-> MasterProgrammer54</p>
+        <p>github-> MasterProgrammer54</p>
+        <p>tecnolgias aplicadas {}</p>
+        <ul>
+          <li>materialize-icons</li>
+        </ul>
+
+        <ul class="pagination"> <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li><img src="img/iconos/html.png" alt="cargando..." class="icono"></li>
+          <li><img src="img/iconos/css3.png" alt="cargando..." class="icono"></li>
+          <li><img src="img/iconos/js.png" alt="cargando..." class="icono"></li>
+          <li><img src="img/iconos/materialize.png" alt="cargando..." class="icono"></li>
+          <li><img src="img/iconos/vue.png" alt="cargando..." class="icono"></li>
+          <li><img src="img/iconos/php.png" alt="cargando..." class="icono"></li>
+          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">cerrar <i class="material-icons right">close</i></a>
+  </div>
+</div>
+
+
+</div>
+
+
+<!--boton flotante -->
+<div id="boton-v">
+  <boton-flotante></boton-flotante>
+</div>
+
+<!-- Footer -->
+<div id="footer-v">
+  <footer-vista></footer-vista>
+</div>
+
+
+<script src="librerias/js/materialize.js"></script>
+<script src="librerias/vue.js"></script>
+<script src="librerias/axios.js"></script>
+
+<script src="complementos/js/general.js"></script>
+<script src="complementos/js/componentes.js"></script>
+
+<script type="text/javascript">
+
+const root = new Vue({
+el: '#configuracion',
+data: {
+  clave: 'xxx-xxx-xxx', 
+  licencias: [],
+  usuarios: [],
+  busquedaUsuarios: '',
+  busquedaLicencias: '',
+  sinResultados: false
+},
+ 
+mounted(){
+  
+},
+methods: { 
+      limpiar(){
+       this.clave = 'xxx-xxx-xxx'
+       this.licencias = ''
+       this.usuarios = ''
+       this.busquedaUsuarios = ''
+       this.busquedaLicencias = ''
+       
+      },
+      cargarUsuarios(){
+        let solicitud = new FormData();
+        solicitud.append('solicitud','cargarListaUsuarios');
+        axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+          root.usuarios = response.data.usuarios
+        })
+      },
+      eliminarUsuario(id){
+        let solicitud = new FormData();
+        solicitud.append('solicitud','eliminarUsuario');
+        solicitud.append('id', id);
+        axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+          let = index = root.usuarios.indexOf(id)
+          root.usuarios.splice(index, 1);
+        })
+      },
+      cargarLicencia(){
+        let solicitud = new FormData();
+        solicitud.append('solicitud','cargarListaLicencia');
+        axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+          root.licencias = response.data.licencias
+        })
+      },
+      agregarLicencia(){
+          let solicitud = new FormData();
+          solicitud.append('solicitud','agregarLicencia');
+          solicitud.append('clave', root.clave);
+          axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+           
+          })
+
+          var objeto = {id: '0', clave: root.clave}        
+          root.licencias.push(objeto);
+          root.clave = 'xxx-xxx-xxx' 
+      
+      },
+      eliminarLicencia(id){
+        let solicitud = new FormData();
+        solicitud.append('solicitud','eliminarLicencia');
+        solicitud.append('id', id);
+        axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+          let = index = root.licencias.indexOf(id)
+          root.licencias.splice(index, 1);
+        })
+      }
+      
+    },
+    watch: {
+        busquedaUsuarios(){
+          let solicitud = new FormData();
+          solicitud.append('solicitud','buscarEnListaUsuarios');
+          solicitud.append('busqueda', root.busquedaUsuarios);
+          axios.post('funciones/apiConfiguracion.php',(solicitud)).then(function(response){
+            root.usuarios = response.data.usuarios
+            if(response.data == 0){
+              root.sinResultados = true
+            }else{
+              root.sinResultados = false
+            }
+          });
+
+        }
+        
+      }
+}); //intancia
+
+</script>
+
+  </body>
+</html>
