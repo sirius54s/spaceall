@@ -1,0 +1,211 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="librerias/css/iconos.css">
+   <link rel="stylesheet" href="librerias/css/materialize.css" media="screen,projection" />
+   <link rel="icon" type="image/png" href="img/logo.png" />
+   <link rel="stylesheet" href="complementos/css/ingresar.css">
+   <link rel="stylesheet" href="complementos/css/general.css">
+   <title>space | iniciar sesion</title>
+ </head>
+
+ <body>
+
+   <!-- navbar -->
+   <div id="navbarvue">
+    <navbar-vista></navbar-vista>
+  </div>
+
+   <section id="contact" class="section section-contact scrollspy">
+     <div class="container">
+       <div class="row" id="formulario">
+
+         <div class="col s12 m12">
+           <div class="card-panel grey darken-4 white-text center colum">
+             <div class="tarjeta">
+               <i class="material-icons medium">person_pin</i>
+               <h5>Resgistrarse | iniciar sesion</h5>
+               <p>Este apartado es solo para los Administradores de Space All</p>
+             </div>
+           </div>
+         </div>
+
+         <div class="col s12 m6">
+           <form method="POST" v-on:submit.prevent>
+             <div class="card-panel grey lighten-3">
+               <div class="input-field">
+                 <input type="text" placeholder="correo" v-model="objetor.correo" name="correo">
+                 <label for="correo">correo</label>
+               </div>
+               <div class="input-field">
+                 <input type="password" placeholder="contraseña" v-model="objetor.contrasena" name="contrasena">
+                 <label for="contrasena">contraseña</label>
+               </div>
+               <div class="input-field">
+                 <input type="password" placeholder="xxx.xxx.xxx.xxx.xxx.xxx.xxx" v-model="objetor.licencia"
+                   name="licencia">
+                 <label for="licencia">licencia</label>
+                 <div class="center-align" v-html="respuestaRegistro"></div>
+               </div>
+               <button class="btn grey darken-4" @click="registrarse()">Registrarse <i class="material-icons right">send</i></button>
+             </div>
+           </form>
+         </div>
+
+         <div class="col s12 m6">
+           <form method="POST" v-on:submit.prevent>
+             <div class="card-panel grey lighten-3">
+               <div class="input-field">
+                 <input type="text" placeholder="correo" v-model="objeto.correo" name="correo">
+                 <label for="correo">correo</label>
+               </div>
+               <div class="input-field">
+                 <input type="password" placeholder="contraseña" v-model="objeto.contrasena" name="contrasena">
+                 <label for="contrasena">contraseña</label>
+                 <div class="center-align" v-html="respuestaLogin"></div>
+               </div>
+               <button class="btn indigo lighten-0" @click="ingresar()">Ingresar <i class="material-icons right">send</i></button>
+             </div>
+           </form>
+         </div>
+
+       </div>
+     </div>
+
+   </section>
+
+ <!--boton flotante -->
+  <div id="boton-v">
+    <boton-flotante></boton-flotante>
+  </div>
+
+   <!-- Footer -->
+   <div id="footer-v">
+    <footer-vista></footer-vista>
+   </div>
+
+   <script src="librerias/js/materialize.js"></script>
+   <script src="librerias/vue.js"></script>
+   <script src="librerias/axios.js"></script>
+
+   <script src="complementos/js/general.js"></script>
+   <script src="complementos/js/componentes.js"></script>
+
+   <script type="text/javascript">
+     let root = new Vue({
+       el: "#formulario",
+       data: {
+         objeto: {
+           correo: '',
+           contrasena: ''
+
+         },
+         objetor: {
+           correo: '',
+           contrasena: '',
+           licencia: ''
+
+         },
+         respuestaRegistro: '',
+         respuestaLogin: ''
+       },
+       mounted() {
+
+        if (localStorage.length > 0) {
+          window.location.href = "preguntas.html";
+        }
+ 
+      },
+       methods: {
+         ingresar() {
+          this.respuestaLogin = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>'
+           let datos = root.FormData(root.objeto);
+           axios.post('funciones/verificarUsuario.php', datos)
+             .then(function (response) {
+               if (response.data.datos) {
+                 const usuario = response.data;
+                 JSON.stringify(usuario)
+                 localStorage.setItem("id", usuario.datos[0]);
+                 localStorage.setItem("correo", usuario.datos[1]);
+                 localStorage.setItem("usuario", usuario.datos[2]);
+                 localStorage.setItem("rango", usuario.datos[3]);
+                 window.location.href = "preguntas.html";
+               }
+
+               switch (response.data) {
+                 case 1:
+                   root.respuestaLogin =
+                     '<div class="chip chip_message_alert">usuario o contraseña incorrecta.<i class="close material-icons">close</i></div>'
+                     root.objeto.correo = ''
+                     root.objeto.contrasena = ''
+                   break;
+                 case 2:
+                   root.respuestaLogin =
+                     '<div class="chip chip_message_warning">algun campo esta vacio<i class="close material-icons">close</i></div>'
+                   break;
+               }
+
+             });
+
+           setTimeout(function () {
+             root.respuestaLogin = ''
+           }, 2500);
+         },
+         registrarse() {
+          this.respuestaRegistro = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>'
+           let datosr = root.FormData(root.objetor);
+           axios.post('funciones/registrarUsuario.php', datosr)
+             .then(function (response) {
+
+               switch (response.data) {
+                 case 1:
+                   root.respuestaRegistro =
+                     '<div class="chip chip_message_info">usuario registrado.<i class="close material-icons">close</i></div>'
+                   root.objeto.correo = vm.objetor.correo
+                   root.objetor.correo = ''
+                   root.objetor.contrasena = ''
+                   root.objetor.licencia = ''
+                   break;
+                 case 2:
+                   root.respuestaRegistro =
+                     '<div class="chip chip_message_alert">usuario ya registrado.<i class="close material-icons">close</i></div>'
+                     root.objetor.correo = ''
+                   break;
+                 case 3:
+                   root.respuestaRegistro =
+                     '<div class="chip chip_message_alert">licencia no valida.<i class="close material-icons">close</i></div>'
+                     root.objetor.licencia= ''
+                   break;
+                 case 4:
+                   root.respuestaRegistro =
+                     '<div class="chip chip_message_warning">algun campo esta vacio<i class="close material-icons">close</i></div>'
+                   break;
+               }
+               setTimeout(function () {
+                 root.respuestaRegistro = ''
+               }, 2500);
+
+             });
+
+
+         },
+         FormData(obj) {
+           let formData = new FormData();
+           for (let key in obj) {
+             formData.append(key, obj[key]);
+           }
+           return formData;
+         }
+
+       }
+       
+
+     });
+   </script>
+
+ </body>
+
+ </html>

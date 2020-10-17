@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="librerias/css/iconos.css">
+  <link rel="stylesheet" href="librerias/css/materialize.css" media="screen,projection" />
+  <link rel="stylesheet" href="complementos/css/general.css">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>space | respuestas</title>
+</head>
+
+<body>
+
+  <!-- navbar -->
+  <div id="navbarvue">
+    <navbar-vista></navbar-vista>
+  </div>
+
+
+
+  <section class="container center-align">
+    <h4>Respuestas</h4>
+  </section>
+  <div class="row" id="cargaralmacen">
+
+    <div class="col s12 m3" v-for="item in datos" v-bind:key="item.id" v-bind:my="item">
+      <div class="card grey darken-3" style="height:420px;">
+        <div class="card-content white-text">
+          <span class="card-title center-align blue-text">pregunta</span>
+          <p class="center-align blue-text text-lighten-1">#{{item.titulo}}</p>
+          <p class="center-align">{{item.pregunta}}</p>
+          <br>
+          <hr>
+          <span class="card-title center-align red-text">respuesta</span>
+          <span class="center-align">{{item.respuesta}}</span>
+          <hr>
+          <p class="blue-text text-lighten-1">usuario</p>
+          <li>{{item.nombre}}</li>
+
+        </div>
+        <div class="card-action center-align pointer">
+          <a @click="megusta(item.id)"><i class="material-icons small">thumb_up</i> {{item.megusta}}</a>
+          <a @click="nomegusta(item.id)"><i class="material-icons small red-text">thumb_down</i> {{item.nomegusta}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+
+ <!--boton flotante -->
+  <div id="boton-v">
+    <boton-flotante></boton-flotante>
+  </div>
+
+
+ <!-- Footer -->
+ <div id="footer-v">
+  <footer-vista></footer-vista>
+ </div>
+
+  <script src="librerias/js/materialize.js"></script>
+  <script src="librerias/vue.js"></script>
+  <script src="librerias/axios.js"></script>
+
+  <script src="complementos/js/general.js"></script>
+  <script src="complementos/js/componentes.js"></script>
+
+  <script type="text/javascript">
+    const root = new Vue({
+      el: '#cargaralmacen',
+      data: {
+        datos: [],
+        objeto: {
+          id: '',
+          megusta: ''
+        }
+      },
+      mounted: function () {
+        this.actualizar();
+      },
+      methods: {
+        megusta(id) {
+          this.objeto.id = id;
+          this.objeto.megusta = 1;
+          let objetoform = this.FormData(this.objeto);
+          axios.post('funciones/contadorMegusta.php', (objetoform));
+
+          this.actualizar();
+
+        },
+        nomegusta(id) {
+          this.objeto.id = id;
+          this.objeto.megusta = 0;
+          let objetoform = this.FormData(this.objeto);
+          axios.post('funciones/contadorMegusta.php', (objetoform));
+
+          this.actualizar();
+
+        },
+        actualizar() {
+          axios.get('funciones/cargarRespuestas.php').then((response) => {
+            root.datos = response.data.respuestas
+          });
+
+        },
+        FormData: function (obj) {
+          let formData = new FormData();
+          for (let key in obj) {
+            formData.append(key, obj[key]);
+          }
+          return formData;
+        }
+
+      },
+
+    }); //intancia
+  </script>
+
+</body>
+
+</html>

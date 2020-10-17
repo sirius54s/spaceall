@@ -1,0 +1,155 @@
+  
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="complementos/js/privilegios.js"></script>
+  <link rel="stylesheet" href="librerias/css/iconos.css">
+  <link rel="stylesheet" href="librerias/css/materialize.css" media="screen,projection" />
+  <link rel="stylesheet" href="complementos/css/general.css">
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space | chat</title>
+</head>
+
+<body>
+
+ <!-- navbar -->
+ <div id="navbarvue">
+  <navbar-vista></navbar-vista>
+</div>
+
+<div class="row">
+
+    <div class="col s4">
+
+        
+        <ul class="collection">
+            <li class="collection-item"> 
+                <div class="input-field ">
+                    <i class="material-icons prefix">search</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Buscar</label>
+                  </div> 
+                  
+                  <div class="input-field ">
+                    <button class="btn waves-effect waves-light indigo" type="button">nueva discusion <i class="material-icons right">add_circle</i></button>
+                 </div> 
+                 <hr>
+            </li>
+  
+
+            <li class="collection-item avatar active indigo">
+              <i class="material-icons circle">folder</i>
+              <span class="title">mantenimiento</span>
+              <p>prioridad-> baja</p>
+              <a href="#!" class="secondary-content"><span class="new badge red" data-badge-caption="mensajes">2</span></a>
+            </li>
+            <li class="collection-item avatar">
+              <i class="material-icons circle green">insert_chart</i>
+              <span class="title">mantenimiento</span>
+              <p>prioridad-> baja</p>
+              <a href="#!" class="secondary-content"><span class="new badge red" data-badge-caption="mensajes">2</span></a>
+            </li>
+            
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">play_arrow</i>
+                <span class="title">mantenimiento</span>
+                <p>prioridad-> baja</p> 
+                <a href="#!" class="secondary-content"><span class="new badge red" data-badge-caption="mensajes">2</span></a>
+              </li>
+
+
+          </ul>
+               
+    </div>
+
+
+    <div class="col s8">
+       
+        
+        <ul class="collection">
+            <li class="collection-item avatar">
+              <img src="images/yuna.jpg" alt="" class="circle">
+              <span class="title">Title</span>
+              <p>First Line <br>
+                 Second Line
+              </p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            <li class="collection-item avatar">
+              <i class="material-icons circle">folder</i>
+              <span class="title">Title</span>
+              <p>First Line <br>
+                 Second Line
+              </p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            <li class="collection-item avatar">
+              <i class="material-icons circle green">insert_chart</i>
+              <span class="title">Title</span>
+              <p>First Line <br>
+                 Second Line
+              </p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+           
+            <li class="collection-item avatar">
+              <i class="material-icons circle red">play_arrow</i>
+              <span class="title">Title</span>
+              <p>First Line <br>
+                 Second Line
+              </p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+
+            <li class="collection-item avatar">
+             
+                      <div class="row">
+                        <div class="input-field col s8">
+                          <textarea id="textarea1" class="materialize-textarea"></textarea>
+                          <label for="textarea1">mensaje</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <a class="btn indigo">enviar <i class="material-icons right">send</i></a>
+                        </div>
+                      </div>
+
+            </li>
+
+          </ul>
+
+          
+    </div>
+ 
+</div>
+
+ <!--boton flotante -->
+ <div id="boton-v">
+  <boton-flotante></boton-flotante>
+</div>
+
+<!-- Footer -->
+<div id="footer-v">
+<footer-vista></footer-vista>
+</div>
+
+
+  <script src="librerias/js/materialize.js"></script>
+  <script src="librerias/vue.js"></script>
+  <script src="librerias/axios.js"></script>
+
+  <script src="complementos/js/general.js"></script>
+  <script src="complementos/js/componentes.js"></script>
+
+  <!-- <script src="complementos/js/general.js"></script>-->
+
+  <script>
+  
+  </script>
+
+
+
+</body>
+
+</html>
